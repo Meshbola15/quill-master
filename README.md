@@ -1,49 +1,42 @@
-# Quill - A Modern FullStack SaaS-Platform
+# Quill
 
-Built with the Next.js 13.5 App Router, tRPC, TypeScript, Prisma & Tailwind.
+**AI-native document chat** — upload PDFs, talk to them with streaming answers, and keep context with vector search. A full-stack SaaS demo built on Next.js, with subscriptions, auth, and type-safe APIs end to end.
 
-Credits: [Joscha Neske](https://www.youtube.com/@joshtriedcoding/videos)
+## What this project shows
 
-## Features
+- **Product surface:** marketing and pricing flows, authenticated app shell, drag-and-drop uploads, PDF viewing, and a chat UI with streaming responses and optimistic updates.
+- **Monetization:** Stripe checkout and webhooks for free vs. paid tiers.
+- **AI pipeline:** OpenAI for completions, LangChain for orchestration, Pinecone for embeddings and retrieval over uploaded documents.
+- **Engineering:** App Router, shared types between client and server via tRPC + Zod, Prisma + MySQL, and Kinde for authentication.
 
-- 🛠️ Complete SaaS with Payment & Subscription
-- 💻 Beautiful Landing Page & Pricing Page Included
-- 💳 Free & Pro Plan Using Stripe
-- 📄 A Beautiful And Highly Functional PDF Viewer
-- 🔄 Streaming API Responses in Real-Time
-- 🔒 Authentication Using Kinde
-- 🎨 Clean, Modern UI Using 'shadcn-ui'
-- 🚀 Optimistic UI Updates for a Great UX
-- ⚡ Infinite Message Loading for Performance
-- 📤 Intuitive Drag n’ Drop Uploads
-- ✨ Instant Loading States
-- 🔧 Modern Data Fetching Using tRPC & Zod
-- 🧠 LangChain for Infinite AI Memory
-- 🌲 Pinecone as our Vector Storage
-- 📊 Prisma as our ORM
-- 🔤 Fully TypeSafe with TypeScript
+## Stack
 
-## Getting Started
+| Area | Choices |
+|------|---------|
+| Framework | Next.js 13 (App Router), React 18, TypeScript |
+| API & data | tRPC, TanStack Query, Prisma, MySQL (e.g. PlanetScale) |
+| UI | Tailwind CSS, Radix / shadcn-style components |
+| Auth | Kinde |
+| Files | UploadThing |
+| AI | OpenAI, LangChain, Vercel AI SDK (`ai`) |
+| Vectors | Pinecone |
+| Billing | Stripe |
 
-### Prerequisites
+## Getting started
 
-**Node version 18.x.x**
+**Prerequisites:** Node.js 18.x and pnpm (or adapt commands for your package manager).
 
-### Cloning the repository
-
-```shell
-git clone https://github.com/nayak-nirmalya/quill.git
-```
-
-### Install Packages
-
-```shell
+```bash
+git clone <your-repo-url>
+cd quill-master
 pnpm install
 ```
 
-### Setup .env file
+### Environment
 
-```js
+Create a `.env` (or `.env.local`) with:
+
+```env
 # Kinde
 KINDE_CLIENT_ID=
 KINDE_CLIENT_SECRET=
@@ -52,10 +45,10 @@ KINDE_SITE_URL=
 KINDE_POST_LOGOUT_REDIRECT_URL=
 KINDE_POST_LOGIN_REDIRECT_URL=
 
-# Database (PlanetScale)
+# Database (MySQL — e.g. PlanetScale)
 DATABASE_URL=
 
-# Uploadthing
+# UploadThing
 UPLOADTHING_SECRET=
 UPLOADTHING_APP_ID=
 
@@ -70,31 +63,29 @@ STRIPE_WEBHOOK_SECRET=
 PINECONE_API_KEY=
 ```
 
-### Setup Prisma
+### Database
 
-Add MySQL Database (PlanetScale)
-
-```shell
+```bash
 npx prisma generate
 npx prisma db push
 ```
 
-### Start the App
+### Run locally
 
-```shell
+```bash
 pnpm dev
 ```
 
-## Available Commands
+## Scripts
 
-Running commands with npm `pnpm [command]`
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Development server |
+| `pnpm build` | Production build |
+| `pnpm start` | Run production build |
+| `pnpm lint` | ESLint |
 
-| command | description                              |
-| :------ | :--------------------------------------- |
-| `dev`   | Starts a development instance of the app |
-| `lint`  | Run lint check                           |
-| `build` | Start building app for deployment        |
-| `start` | Run build version of app                 |
+
 
 ## License
 
