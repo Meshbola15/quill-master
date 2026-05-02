@@ -102,18 +102,21 @@ export const POST = async (req: NextRequest) => {
     ],
   });
 
-  const stream = OpenAIStream(response, {
-    async onCompletion(completion) {
-      await db.message.create({
-        data: {
-          text: completion,
-          isUserMessage: false,
-          fileId,
-          userId,
-        },
-      });
+  const stream = OpenAIStream(
+    response as unknown as Parameters<typeof OpenAIStream>[0],
+    {
+      async onCompletion(completion) {
+        await db.message.create({
+          data: {
+            text: completion,
+            isUserMessage: false,
+            fileId,
+            userId,
+          },
+        });
+      },
     },
-  });
+  );
 
   return new StreamingTextResponse(stream);
 };

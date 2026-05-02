@@ -90,3 +90,7 @@ pnpm dev
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Acknowledgments
+
+This project is based on material from **[Joscha Neske](https://www.youtube.com/@joshtriedcoding)**’s full-stack SaaS tutorial series. I used it as a foundation and learning base for experimenting with RAG-style document chat, Stripe, and a typed Next.js architecture.

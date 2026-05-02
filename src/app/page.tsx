@@ -5,6 +5,8 @@ import { ArrowRight } from "lucide-react";
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/button";
 
+
+
 export default function Home() {
   return (
     <>
